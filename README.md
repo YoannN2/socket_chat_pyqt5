@@ -1,6 +1,13 @@
 # socket_chat_pyqt5
 Simple socket chat with a gui made with pyqt5 (from sentdex tuts)
 
+## Dependencies:
+
+```sh
+pip install pyqt5 pyqt5-tools
+```
+(not sure if that's all... boo)
+
 ## Getting started:
 
 Run the server in a terminal :
