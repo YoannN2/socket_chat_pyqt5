@@ -24,11 +24,11 @@ class Chat(QtWidgets.QWidget):
         self.ui.message.returnPressed.connect(self.send_msg)
         self.ui.send_btn.clicked.connect(self.send_msg)
 
-
         self.timer = QtCore.QTimer()
         self.timer.timeout.connect(self.update_chat)
         self.timer.start(500)
 
+        
     def update_chat(self):
         try:
             username_header = self.client_socket.recv(HEADER_LENGTH)
@@ -65,6 +65,7 @@ class Chat(QtWidgets.QWidget):
         username_header = f"{len(username):<{HEADER_LENGTH}}".encode("utf-8")
         self.client_socket.send(username_header + username)
 
+        
     def send_msg(self):
         # get the msg
         msg = self.ui.message.text()
@@ -78,16 +79,7 @@ class Chat(QtWidgets.QWidget):
 
         # clear msg
         self.ui.message.setText("")
-
-
-    def recv_msgs(self, msg):
-        """
-        I GOT NO IDEA >.<
-        """
-        print(type(msg), msg)
-        # IDK how to get the msgs from the server
-
-
+        
 
 
 if __name__ == "__main__":
